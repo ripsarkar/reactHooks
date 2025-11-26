@@ -1,5 +1,6 @@
 import { createContext, useReducer } from "react";
 import UseContextApp from './UseContextApp';
+import UseCallbackApp from './UseCallbackApp';
 let initialState2 = {
     name:"Buku",
     class:2
@@ -22,9 +23,10 @@ export default function App() {
     })
   }
   return (
-    <UserContext.Provider value={{currentState, changeName}}>
-      <UseContextApp />
-      {/* <button onClick={changeName}>Check useReducer</button> */}
-    </UserContext.Provider>
+    <UseCallbackApp />
+    // <UserContext.Provider value={{currentState, changeName}}>
+    //   <UseContextApp />
+    //   {/* <button onClick={changeName}>Check useReducer</button> */}
+    // </UserContext.Provider>
   );
 }
