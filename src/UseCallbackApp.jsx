@@ -3,6 +3,7 @@ import { useState } from "react";
 import { memo } from "react";
 import Button from '@mui/material/Button';
 const Mycompu = memo(({mystsate}) => {
+  const [count, setcount] = useState(0);
   useEffect(() => {
     for (let i = 0; i < 20000; i++) {
       console.log("Calculating...");
@@ -16,31 +17,23 @@ const Mycompu = memo(({mystsate}) => {
     </p>
   </div>)
 })
-const Todos = memo(({ todos, addTodo }) => {
-  return (
-    <>
-      <h2>My Todos</h2>
-      {todos.map((todo, index) => {
-        return <p key={index}>{todo}</p>;
-      })}
-      <button onClick={addTodo}>Add Todo</button>
-    </>
-  );
-});
+
 export default function UseCallbackApp() {
   const [mystsate, setmystsate] = useState(0)
+    const [count, setcount] = useState(0);
+
   const MyApp = useCallback(() => {
     return (<><Mycompu mystsate={mystsate}/></>)
-  }, [mystsate])
+  },[mystsate])
   const calculateme = () => {
-    console.log(2)
+    setcount(count+2)
   }
   const increseme = () => {
     setmystsate(mystsate+1)
   }
   return (
     <>
-      <MyApp />
+      <MyApp />{count}
       <Button variant="outlined" onClick={calculateme}>Outlined</Button><br></br>
       <Button variant="contained" onClick={increseme}>increseme</Button>
     </>
